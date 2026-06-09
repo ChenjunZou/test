@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}About - Personal Website{% endblock %}
+{% block content %}
+<h1>About Me</h1>
+<h2>{{ profile.name }}</h2>
+<p><em>{{ profile.title }}</em></p>
+<p>{{ profile.bio }}</p>
+
+<h3>Skills</h3>
+<ul>
+{% for skill in profile.skills %}
+    <li>{{ skill }}</li>
+{% endfor %}
+</ul>
+
+{% if profile.github %}
+<p><a href="{{ profile.github }}">GitHub</a></p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} - Personal Website{% endblock %}
+{% block content %}
+<article>
+    <h1>{{ post.title }}</h1>
+    <time>{{ post.published_at.strftime('%B %d, %Y') }}</time>
+    <div class="tags">
+        {% for tag in post.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+    <div class="content">{{ post.content }}</div>
+</article>
+<a href="{{ url_for('main.blog') }}">Back to Blog</a>
+{% endblock %}

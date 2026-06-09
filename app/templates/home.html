@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home - Personal Website{% endblock %}
+{% block content %}
+<h1>Welcome to My Website</h1>
+<p>Hi, I'm Pierre — a software developer passionate about building great web applications.</p>
+
+<h2>Recent Posts</h2>
+{% for post in posts %}
+<article>
+    <h3><a href="{{ url_for('main.blog_post', slug=post.slug) }}">{{ post.title }}</a></h3>
+    <p>{{ post.summary }}</p>
+    <time>{{ post.published_at.strftime('%B %d, %Y') }}</time>
+</article>
+{% endfor %}
+{% endblock %}
