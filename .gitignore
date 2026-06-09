@@ -1,3 +1,4 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -6,9 +7,33 @@ dist/
 build/
 .eggs/
 *.egg
-.env
 venv/
 .venv/
 htmlcov/
 .coverage
 .pytest_cache/
+
+# Credentials and secrets
+*.keytab
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+.env
+.env.*
+!.env.example
+credentials.json
+secrets.yaml
+secrets.yml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
