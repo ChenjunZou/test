@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>主页</title>
+  <style>
+    /* 重置默认样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 全屏渐变动画背景 */
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      overflow: hidden;
+    }
+
+    /* 背景渐变动画关键帧 */
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 浮动粒子装饰 */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(110vh) scale(0); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* 主内容卡片 */
+    .card {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 60px 80px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 标题样式 */
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    /* 副标题样式 */
+    p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+
+    /* 按钮样式 */
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 浮动粒子背景 -->
+  <div class="particles" id="particles"></div>
+
+  <!-- 主内容卡片 -->
+  <div class="card">
+    <h1>✨ 欢迎来到主页</h1>
+    <p>这是一个拥有动态渐变背景的主页，简洁而充满活力。</p>
+    <a class="btn" href="#">开始探索</a>
+  </div>
+
+  <script>
+    // 动态生成浮动粒子
+    const container = document.getElementById('particles');
+    const count = 18;
+
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('div');
+      el.className = 'particle';
+      const size = Math.random() * 60 + 20; // 20px ~ 80px
+      el.style.cssText = [
+        `width: ${size}px`,
+        `height: ${size}px`,
+        `left: ${Math.random() * 100}%`,
+        `animation-duration: ${Math.random() * 12 + 8}s`,
+        `animation-delay: ${Math.random() * 10}s`,
+      ].join(';');
+      container.appendChild(el);
+    }
+  </script>
+
+</body>
+</html>
