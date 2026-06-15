@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>主页</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>主页</title>
+<style>
     /* 重置默认样式 */
     * {
       margin: 0;
@@ -117,20 +118,26 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
   </style>
+
+<!-- 引入对话气泡工具 -->
+<script src="https://pre-yf-autoagent.pre-opt.aliyun.com/bubble-popup.min.js"></script>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="theme-color" content="#B13BFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="test">
+    <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
 </head>
 <body>
-
-  <!-- 浮动粒子背景 -->
-  <div class="particles" id="particles"></div>
-
-  <!-- 主内容卡片 -->
-  <div class="card">
-    <h1>✨ 欢迎来到主页</h1>
-    <p>这是一个拥有动态渐变背景的主页，简洁而充满活力。</p>
-    <a class="btn" href="#">开始探索</a>
-  </div>
-
-  <script>
+<!-- 浮动粒子背景 -->
+<div class="particles" id="particles"></div>
+<!-- 主内容卡片 -->
+<div class="card">
+<h1>✨ 欢迎来到主页</h1>
+<p>这是一个拥有动态渐变背景的主页，简洁而充满活力。</p>
+<a class="btn" href="#">开始探索</a>
+</div>
+<script>
     // 动态生成浮动粒子
     const container = document.getElementById('particles');
     const count = 18;
@@ -149,6 +156,19 @@
       container.appendChild(el);
     }
   </script>
-
+    <script>
+        // PWA Service Worker 注册 - 由 setup_pwa.py 自动生成
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then((reg) => {
+                    console.log('[PWA] Service Worker 已注册, scope:', reg.scope);
+                    return navigator.serviceWorker.ready;
+                })
+                .then(() => console.log('[PWA] Service Worker 已激活并接管页面'))
+                .catch((err) => console.warn('[PWA] Service Worker 注册失败:', err));
+        } else {
+            console.warn('[PWA] 当前环境不支持 Service Worker（需要 HTTPS 或 localhost）');
+        }
+    </script>
 </body>
 </html>
