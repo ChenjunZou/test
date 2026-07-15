@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Personal Website{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<html lang="en" data-node-id="a5936708-8025-11f1-996f-1288d2f95095">
+<head data-node-id="a5936e10-8025-11f1-996f-1288d2f95095">
+    <meta charset="UTF-8" data-node-id="a593692e-8025-11f1-996f-1288d2f95095">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-node-id="a5936802-8025-11f1-996f-1288d2f95095">
+    <title data-node-id="a5936dac-8025-11f1-996f-1288d2f95095">{% block title %}Personal Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" data-node-id="a59369b0-8025-11f1-996f-1288d2f95095">
 </head>
-<body>
-    <nav>
-        <a href="{{ url_for('main.home') }}">Home</a>
-        <a href="{{ url_for('main.about') }}">About</a>
-        <a href="{{ url_for('main.blog') }}">Blog</a>
-        <a href="{{ url_for('main.contact') }}">Contact</a>
+<body data-node-id="a5936a1e-8025-11f1-996f-1288d2f95095">
+    <nav data-node-id="a5936a8c-8025-11f1-996f-1288d2f95095">
+        <a href="{{ url_for('main.home') }}" data-node-id="a5936afa-8025-11f1-996f-1288d2f95095">Home</a>
+        <a href="{{ url_for('main.about') }}" data-node-id="a5936be0-8025-11f1-996f-1288d2f95095">About</a>
+        <a href="{{ url_for('main.blog') }}" data-node-id="a5936c58-8025-11f1-996f-1288d2f95095">Blog</a>
+        <a href="{{ url_for('main.portfolio') }}" data-node-id="a5936e74-8025-11f1-996f-1288d2f95095">Portfolio</a>
+        <a href="{{ url_for('main.contact') }}" data-node-id="a5936cda-8025-11f1-996f-1288d2f95095">Contact</a>
     </nav>
-    <main>
+    <main data-node-id="a5936d3e-8025-11f1-996f-1288d2f95095">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% for category, message in messages %}
-                <div class="flash {{ category }}">{{ message }}</div>
+                <div class="flash {{ category }}" data-node-id="a5936fb4-8025-11f1-996f-1288d2f95095">{{ message }}</div>
             {% endfor %}
         {% endwith %}
         {% block content %}{% endblock %}
     </main>
-    <footer>
-        <p>&copy; 2024 Pierre. All rights reserved.</p>
+    <footer data-node-id="a5936eec-8025-11f1-996f-1288d2f95095">
+        <p data-node-id="a5936f50-8025-11f1-996f-1288d2f95095">&copy; 2024 Pierre. All rights reserved.</p>
     </footer>
 </body>
 </html>

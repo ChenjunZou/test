@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 
 from app.forms import ContactForm
-from app.models import BlogPost, Profile
+from app.models import BlogPost, Profile, Project
 from app.utils import paginate
 
 main_bp = Blueprint("main", __name__)
@@ -51,3 +51,11 @@ def contact():
             return redirect(url_for("main.contact"))
         flash("Please correct the errors below.", "error")
     return render_template("contact.html", form=form)
+
+
+@main_bp.route("/portfolio")
+def portfolio():
+    """Portfolio page with project cards, skills, and contact info."""
+    profile = Profile.get_default()
+    projects = Project.get_all()
+    return render_template("portfolio.html", profile=profile, projects=projects)
