@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Portfolio - Personal Website{% endblock %}
+{% block content %}
+<h1 data-node-id="a5965cc4-8025-11f1-996f-1288d2f95095">Portfolio</h1>
+<p data-node-id="a5966214-8025-11f1-996f-1288d2f95095">Selected projects by <strong data-node-id="a5966278-8025-11f1-996f-1288d2f95095">{{ profile.name }}</strong> — {{ profile.title }}.</p>
+
+<h2 data-node-id="a59660c0-8025-11f1-996f-1288d2f95095">Projects</h2>
+<div class="project-grid" data-node-id="a5966610-8025-11f1-996f-1288d2f95095">
+{% for project in projects %}
+    <article class="project-card" data-node-id="a59662e6-8025-11f1-996f-1288d2f95095">
+        <h3 data-node-id="a5965dbe-8025-11f1-996f-1288d2f95095">{{ project.title }}</h3>
+        <p data-node-id="a59664da-8025-11f1-996f-1288d2f95095">{{ project.description }}</p>
+        <div class="tags" data-node-id="a5965eb8-8025-11f1-996f-1288d2f95095">
+        {% for tag in project.tags %}
+            <span class="tag" data-node-id="a5965fee-8025-11f1-996f-1288d2f95095">{{ tag }}</span>
+        {% endfor %}
+        </div>
+        <p class="project-links" data-node-id="a5965f26-8025-11f1-996f-1288d2f95095">
+            {% if project.url %}<a href="{{ project.url }}" data-node-id="a5966548-8025-11f1-996f-1288d2f95095">Live Demo</a>{% endif %}
+            {% if project.repo_url %}<a href="{{ project.repo_url }}" data-node-id="a59665ac-8025-11f1-996f-1288d2f95095">Source</a>{% endif %}
+        </p>
+    </article>
+{% endfor %}
+</div>
+
+<h2 data-node-id="a5966124-8025-11f1-996f-1288d2f95095">Skills</h2>
+<div class="tags skills" data-node-id="a5965f8a-8025-11f1-996f-1288d2f95095">
+{% for skill in profile.skills %}
+    <span class="tag" data-node-id="a59661ba-8025-11f1-996f-1288d2f95095">{{ skill }}</span>
+{% endfor %}
+</div>
+
+<h2 data-node-id="a596634a-8025-11f1-996f-1288d2f95095">Contact</h2>
+<p data-node-id="a59663ae-8025-11f1-996f-1288d2f95095"><strong data-node-id="a596667e-8025-11f1-996f-1288d2f95095">Email:</strong> {{ profile.email }}</p>
+{% if profile.github %}<p data-node-id="a5966412-8025-11f1-996f-1288d2f95095"><a href="{{ profile.github }}" data-node-id="a5966700-8025-11f1-996f-1288d2f95095">GitHub</a></p>{% endif %}
+{% if profile.linkedin %}<p data-node-id="a5966476-8025-11f1-996f-1288d2f95095"><a href="{{ profile.linkedin }}" data-node-id="a5966782-8025-11f1-996f-1288d2f95095">LinkedIn</a></p>{% endif %}
+<p data-node-id="a5965e4a-8025-11f1-996f-1288d2f95095"><a href="{{ url_for('main.contact') }}" data-node-id="a596605c-8025-11f1-996f-1288d2f95095">Send me a message</a></p>
+{% endblock %}

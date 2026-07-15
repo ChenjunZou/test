@@ -106,3 +106,48 @@ class Profile:
             linkedin="",
             skills=["Python", "Flask", "JavaScript", "SQL", "Git"],
         )
+
+
+@dataclass
+class Project:
+    """Represents a portfolio project."""
+
+    title: str
+    description: str
+    url: str = ""
+    repo_url: str = ""
+    tags: list[str] = field(default_factory=list)
+
+    @classmethod
+    def get_all(cls) -> list["Project"]:
+        """Get all portfolio projects."""
+        return [
+            Project(
+                title="Personal Website",
+                description="A Flask-based personal website with blog, portfolio, and contact features.",
+                url="",
+                repo_url="https://github.com/ChenjunZou",
+                tags=["Flask", "Python", "Jinja2"],
+            ),
+            Project(
+                title="Task Tracker CLI",
+                description="A command-line task manager with persistent storage and tagging.",
+                url="",
+                repo_url="https://github.com/ChenjunZou",
+                tags=["Python", "CLI", "SQLite"],
+            ),
+            Project(
+                title="Weather Dashboard",
+                description="A responsive weather dashboard consuming a public weather API.",
+                url="",
+                repo_url="https://github.com/ChenjunZou",
+                tags=["JavaScript", "HTML", "CSS"],
+            ),
+            Project(
+                title="REST API Service",
+                description="A small REST API service with authentication and pagination.",
+                url="",
+                repo_url="https://github.com/ChenjunZou",
+                tags=["Flask", "REST", "SQL"],
+            ),
+        ]
