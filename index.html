@@ -165,70 +165,6 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
     }
-
-    /* 工作经验卡片特殊样式 */
-    .experience-card {
-      margin-top: 40px;
-      text-align: left;
-      max-width: 800px;
-    }
-
-    .experience-card h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #ffffff;
-      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
-      letter-spacing: 2px;
-      margin-bottom: 32px;
-      text-align: center;
-    }
-
-    .experience-list {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .experience-item {
-      padding: 24px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .experience-item h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .experience-item .company {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 16px;
-    }
-
-    .experience-item ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .experience-item li {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.8;
-      margin-bottom: 8px;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .experience-item li:before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: rgba(255, 255, 255, 0.6);
-    }
   </style>
 </head>
 <body>
@@ -248,40 +184,6 @@
     <h1>✨ 欢迎来到主页</h1>
     <p>这是一个拥有动态渐变背景的主页，简洁而充满活力。</p>
     <a class="btn" href="#">开始探索</a>
-  </div>
-
-  <!-- 工作经验卡片 -->
-  <div class="card experience-card">
-    <h2>💼 个人工作经验</h2>
-    <div class="experience-list">
-      <div class="experience-item">
-        <h3>高级前端工程师</h3>
-        <p class="company">某知名互联网公司 · 2020 - 至今</p>
-        <ul>
-          <li>负责公司核心产品的前端架构设计与开发</li>
-          <li>主导 React + TypeScript 技术栈迁移，提升代码质量 40%</li>
-          <li>优化页面加载性能，首屏加载时间从 3s 降至 1.2s</li>
-        </ul>
-      </div>
-      <div class="experience-item">
-        <h3>前端开发工程师</h3>
-        <p class="company">创业科技公司 · 2018 - 2020</p>
-        <ul>
-          <li>独立负责多个 Web 应用的全栈开发</li>
-          <li>实现响应式设计，支持多端适配</li>
-          <li>搭建 CI/CD 流程，自动化部署效率提升 60%</li>
-        </ul>
-      </div>
-      <div class="experience-item">
-        <h3>初级前端工程师</h3>
-        <p class="company">软件外包公司 · 2016 - 2018</p>
-        <ul>
-          <li>参与多个企业级 Web 项目开发</li>
-          <li>熟练掌握 HTML5、CSS3、JavaScript 基础技术</li>
-          <li>学习并实践 Vue.js 框架开发</li>
-        </ul>
-      </div>
-    </div>
   </div>
 
   <script>
