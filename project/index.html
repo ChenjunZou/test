@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" data-node-id="32c3bcf2-80b9-11f1-8d42-aec62a43f622">
+<head data-node-id="32c3bd56-80b9-11f1-8d42-aec62a43f622">
+<meta charset="utf-8" data-node-id="32c3b612-80b9-11f1-8d42-aec62a43f622"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" data-node-id="32c3b1b2-80b9-11f1-8d42-aec62a43f622"/>
+<title data-node-id="32c3b68a-80b9-11f1-8d42-aec62a43f622">主页</title>
+<style data-node-id="32c3bdba-80b9-11f1-8d42-aec62a43f622">
+    /* 重置默认样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 全屏渐变动画背景 */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 80px 24px;
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* 背景渐变动画关键帧 */
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 浮动粒子装饰 */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(110vh) scale(0); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* 主内容卡片 */
+    .card {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 60px 80px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 标题样式 */
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    /* 副标题样式 */
+    p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+
+    /* 按钮样式 */
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 工作经验区块 */
+    .experience {
+      position: relative;
+      z-index: 1;
+      width: min(720px, calc(100vw - 48px));
+      padding: 48px 56px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    .experience h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .experience-item {
+      padding: 20px 24px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .experience-item:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .experience-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px 16px;
+      margin-bottom: 10px;
+    }
+
+    .experience-role {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .experience-role .company {
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+      margin-left: 8px;
+    }
+
+    .experience-period {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .experience-desc {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.8;
+    }
+  </style>
+
+<!-- 引入对话气泡工具 -->
+<script src="https://pre-mm-autoagent.pre-opt.aliyun.com/bubble-popup.min.js" data-node-id="32c3b6ee-80b9-11f1-8d42-aec62a43f622"></script>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="theme-color" content="#B13BFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="个人履历展示">
+    <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
+</head>
+<body data-node-id="32c3b9aa-80b9-11f1-8d42-aec62a43f622">
+<!-- 浮动粒子背景 -->
+<div class="particles" id="particles" data-node-id="32c3b75c-80b9-11f1-8d42-aec62a43f622"></div>
+<!-- 主内容卡片 -->
+<div class="card" data-node-id="32c3c0b2-80b9-11f1-8d42-aec62a43f622">
+<h1 data-node-id="32c3b7c0-80b9-11f1-8d42-aec62a43f622">✨ 欢迎来到主页</h1>
+<p data-node-id="32c3be1e-80b9-11f1-8d42-aec62a43f622">这是一个拥有动态渐变背景的主页，简洁而充满活力。</p>
+<a class="btn" href="#" data-node-id="32c3bafe-80b9-11f1-8d42-aec62a43f622">开始探索</a>
+</div>
+<!-- 工作经验 -->
+<section class="experience" data-node-id="32c3bef0-80b9-11f1-8d42-aec62a43f622">
+<h2 data-node-id="32c3bf68-80b9-11f1-8d42-aec62a43f622">💼 工作经验</h2>
+<div class="experience-list" data-node-id="32c3ba18-80b9-11f1-8d42-aec62a43f622">
+<article class="experience-item" data-node-id="32c3c116-80b9-11f1-8d42-aec62a43f622">
+<div class="experience-header" data-node-id="32c3c256-80b9-11f1-8d42-aec62a43f622">
+<div class="experience-role" data-node-id="32c3b3ce-80b9-11f1-8d42-aec62a43f622">
+            高级前端工程师<span class="company" data-node-id="32c3c184-80b9-11f1-8d42-aec62a43f622">· 字节跳动</span>
+</div>
+<div class="experience-period" data-node-id="32c3bfea-80b9-11f1-8d42-aec62a43f622">2023.03 - 至今</div>
+</div>
+<p class="experience-desc" data-node-id="32c3bb62-80b9-11f1-8d42-aec62a43f622">
+          负责大型中后台系统的前端架构设计与核心模块开发，主导基于 React + TypeScript 的组件库沉淀，推动首屏性能优化，将关键页面加载时长降低约 40%；带领 5 人小组完成多个业务线前端重构与发布。
+        </p>
+</article>
+<article class="experience-item" data-node-id="32c3bbc6-80b9-11f1-8d42-aec62a43f622">
+<div class="experience-header" data-node-id="32c3c04e-80b9-11f1-8d42-aec62a43f622">
+<div class="experience-role" data-node-id="32c3c1e8-80b9-11f1-8d42-aec62a43f622">
+            前端工程师<span class="company" data-node-id="32c3bc2a-80b9-11f1-8d42-aec62a43f622">· 美团</span>
+</div>
+<div class="experience-period" data-node-id="32c3ba9a-80b9-11f1-8d42-aec62a43f622">2021.07 - 2023.02</div>
+</div>
+<p class="experience-desc" data-node-id="32c3b856-80b9-11f1-8d42-aec62a43f622">
+          参与到店业务核心交易链路的前端研发，落地营销活动搭建框架与可视化配置平台，支撑 10+ 业务方的日常活动配置；优化长列表渲染性能，解决复杂表单状态同步难题。
+        </p>
+</article>
+<article class="experience-item" data-node-id="32c3b50e-80b9-11f1-8d42-aec62a43f622">
+<div class="experience-header" data-node-id="32c3b8c4-80b9-11f1-8d42-aec62a43f622">
+<div class="experience-role" data-node-id="32c3bc8e-80b9-11f1-8d42-aec62a43f622">
+            前端实习生<span class="company" data-node-id="32c3b946-80b9-11f1-8d42-aec62a43f622">· 腾讯</span>
+</div>
+<div class="experience-period" data-node-id="32c3b482-80b9-11f1-8d42-aec62a43f622">2020.10 - 2021.06</div>
+</div>
+<p class="experience-desc" data-node-id="32c3c2ba-80b9-11f1-8d42-aec62a43f622">
+          参与内部数据可视化平台的前端开发，负责图表组件封装与数据接口对接；学习并实践工程化、CI/CD 与代码规范流程，积累大型团队协作经验。
+        </p>
+</article>
+</div>
+</section>
+<script data-node-id="32c3b590-80b9-11f1-8d42-aec62a43f622">
+    // 动态生成浮动粒子
+    const container = document.getElementById('particles');
+    const count = 18;
+
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('div');
+      el.className = 'particle';
+      const size = Math.random() * 60 + 20; // 20px ~ 80px
+      el.style.cssText = [
+        `width: ${size}px`,
+        `height: ${size}px`,
+        `left: ${Math.random() * 100}%`,
+        `animation-duration: ${Math.random() * 12 + 8}s`,
+        `animation-delay: ${Math.random() * 10}s`,
+      ].join(';');
+      container.appendChild(el);
+    }
+  </script>
+    <script>
+        // PWA Service Worker 注册 - 由 setup_pwa.py 自动生成
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then((reg) => {
+                    console.log('[PWA] Service Worker 已注册, scope:', reg.scope);
+                    return navigator.serviceWorker.ready;
+                })
+                .then(() => console.log('[PWA] Service Worker 已激活并接管页面'))
+                .catch((err) => console.warn('[PWA] Service Worker 注册失败:', err));
+        } else {
+            console.warn('[PWA] 当前环境不支持 Service Worker（需要 HTTPS 或 localhost）');
+        }
+    </script>
+</body>
+</html>
