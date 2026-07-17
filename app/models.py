@@ -166,35 +166,6 @@ class WorkExperience:
                     "Owned the internal admin tools and reporting scripts",
                 ],
             ),
-            WorkExperience(
-                company="Nimbus Labs",
-                role="Backend Engineering Intern",
-                start="2017",
-                end="2018",
-                description=(
-                    "Supported the platform team building data ingestion pipelines "
-                    "and internal tooling during an internship."
-                ),
-                highlights=[
-                    "Built a job-status dashboard for the operations team",
-                    "Wrote integration tests for the event ingestion service",
-                    "Documented onboarding steps for new interns",
-                ],
-            ),
-            WorkExperience(
-                company="Campus Open Source Club",
-                role="Open Source Contributor",
-                start="2016",
-                end="2017",
-                description=(
-                    "Contributed to community-driven web projects while completing coursework."
-                ),
-                highlights=[
-                    "Submitted pull requests improving accessibility on the club website",
-                    "Helped organize a beginner-friendly hackathon for new students",
-                    "Wrote introductory guides for the Flask workshop series",
-                ],
-            ),
         ]
 
 
