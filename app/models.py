@@ -166,6 +166,34 @@ class WorkExperience:
                     "Owned the internal admin tools and reporting scripts",
                 ],
             ),
+            WorkExperience(
+                company="TechNova Solutions",
+                role="Backend Engineer",
+                start="2016",
+                end="2018",
+                description=(
+                    "Developed microservices architecture for a fintech platform handling payment processing."
+                ),
+                highlights=[
+                    "Built RESTful APIs serving 50k+ daily active users",
+                    "Implemented real-time transaction monitoring with WebSocket",
+                    "Reduced database query time by 40% through indexing optimization",
+                ],
+            ),
+            WorkExperience(
+                company="Digital Wave Agency",
+                role="Web Developer Intern",
+                start="2015",
+                end="2016",
+                description=(
+                    "Assisted in building responsive websites for small business clients."
+                ),
+                highlights=[
+                    "Created 10+ client websites using HTML, CSS, and JavaScript",
+                    "Learned agile development practices and version control workflows",
+                    "Improved page load speed by optimizing images and minifying assets",
+                ],
+            ),
         ]
 
 
