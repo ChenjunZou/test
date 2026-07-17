@@ -23,6 +23,24 @@
 {% endfor %}
 </div>
 
+<h2>Work Experience</h2>
+<div class="experience-list">
+{% for experience in experiences %}
+    <article class="experience-card">
+        <h3>{{ experience.role }} <span class="experience-company">· {{ experience.company }}</span></h3>
+        <p class="experience-period">{{ experience.start }} — {{ experience.end }}</p>
+        <p>{{ experience.description }}</p>
+        {% if experience.highlights %}
+        <ul class="experience-highlights">
+            {% for highlight in experience.highlights %}
+            <li>{{ highlight }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </article>
+{% endfor %}
+</div>
+
 <h2 data-node-id="a5966124-8025-11f1-996f-1288d2f95095">Skills</h2>
 <div class="tags skills" data-node-id="a5965f8a-8025-11f1-996f-1288d2f95095">
 {% for skill in profile.skills %}
