@@ -166,6 +166,21 @@ class WorkExperience:
                     "Owned the internal admin tools and reporting scripts",
                 ],
             ),
+            WorkExperience(
+                company="Campus Tech Lab",
+                role="Software Engineering Intern",
+                start="2017",
+                end="2018",
+                description=(
+                    "Joined the university research lab as an intern, building "
+                    "internal tooling and prototyping data pipelines."
+                ),
+                highlights=[
+                    "Built an experiment-tracking dashboard with Flask and SQLite",
+                    "Automated data cleanup scripts that saved hours per week",
+                    "Pair-programmed with grad students on machine-learning demos",
+                ],
+            ),
         ]
 
 
