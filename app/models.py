@@ -109,67 +109,6 @@ class Profile:
 
 
 @dataclass
-class WorkExperience:
-    """Represents a work experience entry."""
-
-    company: str
-    role: str
-    start: str
-    end: str
-    description: str
-    highlights: list[str] = field(default_factory=list)
-
-    @classmethod
-    def get_all(cls) -> list["WorkExperience"]:
-        """Get all work experience entries (newest first)."""
-        return [
-            WorkExperience(
-                company="Acme Corp",
-                role="Senior Software Engineer",
-                start="2023",
-                end="Present",
-                description=(
-                    "Led backend development of the customer-facing platform, "
-                    "improving request throughput and reliability."
-                ),
-                highlights=[
-                    "Designed a service layer serving millions of monthly requests",
-                    "Mentored three engineers and ran the team code-review rotation",
-                    "Cut p95 latency by 35% through query and caching work",
-                ],
-            ),
-            WorkExperience(
-                company="Bright Studio",
-                role="Full-Stack Developer",
-                start="2020",
-                end="2023",
-                description=(
-                    "Built and shipped several customer-facing web products end-to-end."
-                ),
-                highlights=[
-                    "Shipped a billing dashboard used by the finance team",
-                    "Introduced automated testing, raising coverage above 80%",
-                    "Collaborated with design on a shared component library",
-                ],
-            ),
-            WorkExperience(
-                company="Startly",
-                role="Junior Developer",
-                start="2018",
-                end="2020",
-                description=(
-                    "Contributed features and fixes across a multi-tenant SaaS app."
-                ),
-                highlights=[
-                    "Implemented onboarding flows used by new customers",
-                    "Resolved production bugs and improved on-call runbooks",
-                    "Owned the internal admin tools and reporting scripts",
-                ],
-            ),
-        ]
-
-
-@dataclass
 class Project:
     """Represents a portfolio project."""
 
